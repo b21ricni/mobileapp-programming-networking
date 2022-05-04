@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Fetch from File
         new JsonFile(this, this).execute(JSON_FILE);
+        //Fetch from url
         new JsonTask(this).execute(JSON_URL);
     }
 
