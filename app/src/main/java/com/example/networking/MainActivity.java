@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     @Override
     public void onPostExecute(String json) {
         
-        Log.d("MainActivity", json);
+        Log.d("==>", json);
         Gson gson = new Gson();
         Type type = new TypeToken<List<Mountain>>() {}.getType();
         List<Mountain> listOfMountains = gson.fromJson(json, type);
