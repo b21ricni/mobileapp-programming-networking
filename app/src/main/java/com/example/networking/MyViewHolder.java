@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class    MyViewHolder extends RecyclerView.ViewHolder {
     public TextView name;
+    public TextView size;
+    public TextView location;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
-        name = itemView.findViewById(R.id.name);
+        //name = itemView.findViewById(R.id.name);
     }
 }

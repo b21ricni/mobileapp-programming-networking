@@ -7,27 +7,34 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    List<String> mountains = Arrays.asList("Kinnekulle", "Billingen","Mount Everest","Kebnekaise","Fiji" );
+    private List<Mountain> mountains = new ArrayList();
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mountain, parent, false);
-        return new MyViewHolder(view);
+        return new MyViewHolder((LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mountain, parent, false)));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(mountains.get(position));
+        Mountain mountain = mountains.get(position);
+
+        holder.name.setText(mountain.getName());
+        holder.location.setText(mountain.getLocation());
+        holder.size.setText(String.valueOf(mountain.getSize()));
     }
 
     @Override
     public int getItemCount() {
         return mountains.size();
+    }
+    public void setMountains(List<Mountain> mountains) {
+        this.mountains = mountains;
     }
 }
